@@ -1,5 +1,6 @@
 "use client";
 import AboutSection from "@/components/sections/AboutSection";
+import ContactSection from "@/components/sections/ContactSection";
 import HeroSection from "@/components/sections/HeroSection";
 import ProjectSection from "@/components/sections/ProjectSection";
 import SkillSection from "@/components/sections/SkillSection";
@@ -18,6 +19,9 @@ export default function Home() {
       </div>
       <div className="w-[1400px] h-[700px] flex flex-row items-center justify-center mt-5 pl-12   ">
         <SkillSection />
+      </div>
+      <div className="w-[1400px] h-[700px] flex flex-row items-center justify-center mt-5 pl-12   ">
+        <ContactSection />
       </div>
     </div>
   );
