@@ -35,7 +35,7 @@ const HeroSection = () => {
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="flex flex-col sm:w-[400px] md:flex-row md:w-[700px] justify-between items-center h-auto md:h-[700px] bg-black lg:w-[1400px] rounded-2xl shadow-lg border-2 border-blue-400 transition-transform duration-300 p-6 md:p-12"
+      className="flex flex-col w-screen sm:w-[400px] md:flex-row md:w-[700px] justify-between items-center h-auto md:h-[700px] bg-black lg:w-[1400px] rounded-2xl shadow-lg border-2 border-blue-400 transition-transform duration-300 p-6 md:p-12"
     >
       {/* Left Side - Text */}
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start text-center md:text-left">

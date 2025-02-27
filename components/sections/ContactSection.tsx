@@ -47,14 +47,14 @@ const ContactForm = () => {
   };
 
   return (
-    <div className=" lg:w-[700px] md:w-[700px] sm:w-[400px] md:mt-36 sm:mt-20 mx-auto bg-gray-900  rounded-xl shadow-lg border border-blue-500 text-white">
-      <h2 className="text-3xl font-bold text-center text-blue-400 mb-6 lg:mt-5 md:mt-5 sm:mt-5">
+    <div className=" lg:w-[700px] w-screen-5 mt-20 md:w-[700px] sm:w-[400px] md:mt-20 sm:mt-20 mx-auto bg-gray-900  rounded-xl shadow-lg border border-blue-500 text-white">
+      <h2 className="text-3xl mt-10 font-bold text-center text-blue-400 mb-6 lg:mt-5 md:mt-5 sm:mt-5">
         Contact Me
       </h2>
       {success && (
         <p className="text-green-400 text-center">Message Sent Successfully!</p>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4 p-5">
+      <form onSubmit={handleSubmit} className="space-y-4 p-5 ">
         <input
           type="text"
           name="username"
@@ -62,7 +62,7 @@ const ContactForm = () => {
           value={formData.username}
           onChange={handleChange}
           required
-          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-full justify-center items-center p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <select
           name="gender"

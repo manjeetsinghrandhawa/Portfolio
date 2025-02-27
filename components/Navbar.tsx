@@ -52,29 +52,39 @@ const Navbar = () => {
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
+      </div>
 
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="absolute top-16 right-4 bg-gray-800 p-6 rounded-lg shadow-lg md:hidden">
-            <nav className="flex flex-col space-y-4">
-              {[
-                { id: "HeroSection", label: "Home" },
-                { id: "AboutSection", label: "About" },
-                { id: "ProjectSection", label: "Projects" },
-                { id: "SkillSection", label: "Skills" },
-                { id: "ContactSection", label: "Contact" },
-              ].map(({ id, label }) => (
-                <button
-                  key={id}
-                  onClick={() => scrollToSection(id)}
-                  className="text-white text-lg hover:text-blue-400"
-                >
-                  {label}
-                </button>
-              ))}
-            </nav>
-          </div>
-        )}
+      {/* Mobile Menu (Fixed) */}
+      <div
+        className={`fixed top-0 left-0 w-full h-full bg-gray-900/90 z-50 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ${
+          menuOpen
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-95 pointer-events-none"
+        }`}
+      >
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="absolute top-6 right-6 text-white text-3xl"
+        >
+          <FaTimes />
+        </button>
+        <nav className="flex flex-col space-y-6 text-center">
+          {[
+            { id: "HeroSection", label: "Home" },
+            { id: "AboutSection", label: "About" },
+            { id: "ProjectSection", label: "Projects" },
+            { id: "SkillSection", label: "Skills" },
+            { id: "ContactSection", label: "Contact" },
+          ].map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className="text-white text-2xl hover:text-blue-400 transition"
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
       </div>
     </header>
   );

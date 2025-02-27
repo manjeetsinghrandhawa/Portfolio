@@ -44,14 +44,14 @@ const ProjectSection = () => {
         background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.2), transparent 150px)`,
         boxShadow: "0px 0px 20px rgba(0, 162, 255, 0.6)", // Light blue glow
       }}
-      className="flex flex-col lg:w-[1400px] md:w-[700px] md:mt-40 sm:mt-20 sm:w-[400px] justify-center items-center bg-black rounded-2xl shadow-lg border-2 border-blue-400 transition-transform duration-300 p-6 w-full"
+      className="flex flex-col lg:w-[1400px] md:w-[700px] mt-20 md:mt-20 sm:mt-20 sm:w-[400px] justify-center items-center bg-black rounded-2xl shadow-lg border-2 border-blue-400 transition-transform duration-300 p-6 w-screen-5 mx-auto"
     >
       <h2 className="text-3xl md:text-4xl font-serif text-blue-400 text-center lg:pb-6">
         Projects
       </h2>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1  sm:mt-16 sm:grid-cols-1 lg:grid-cols-3 gap-6  w-full max-w-6xl">
+      <div className="grid grid-cols-1 mt-5  sm:mt-16 sm:grid-cols-1 lg:grid-cols-3 gap-6  w-full max-w-6xl">
         {projects.map((project, index) => (
           <div
             key={index}

@@ -34,7 +34,13 @@ const AboutSection = () => {
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="rounded-2xl lg:w-[1400px] md:w-[700px]  sm:w-[400px] shadow-lg border-2  border-orange-500 transition-transform duration-300 p-6  max-w-[1400px] mx-auto sm:mt-20"
+      className="rounded-2xl 
+        mt-20 w-screen-5
+        sm:w-[400px] sm:mt-20 
+        md:w-[700px] lg:w-[1400px] 
+        shadow-lg border-2 border-orange-500 
+        transition-transform duration-300 p-6 
+        max-w-[1400px] mx-auto"
     >
       <h1 className="text-4xl md:text-6xl text-orange-500 text-center md:text-left font-bold mb-6">
         About Me
@@ -43,8 +49,9 @@ const AboutSection = () => {
       <div className="text-lg md:text-2xl leading-relaxed text-justify space-y-6">
         <p className="text-white">
           👋 Hi, I&apos;m <span className="text-orange-400">Manjeet</span>, a
-          passionate <span className="text-blue-400">Software Developer</span>{" "}
-          who loves turning ideas into reality through code. With expertise in{" "}
+          passionate
+          <span className="text-blue-400"> Software Developer</span> who loves
+          turning ideas into reality through code. With expertise in{" "}
           <span className="text-blue-400">Next.js, React, JavaScript</span>, and
           backend technologies, I specialize in building dynamic and responsive
           web applications.

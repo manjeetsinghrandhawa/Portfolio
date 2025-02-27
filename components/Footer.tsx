@@ -98,7 +98,7 @@ const Footer = () => {
         <FaArrowUp className="text-white" />
       </button>
 
-      <p className="text-blue-500 flex flex-row-reverse pr-14 ">
+      <p className="text-blue-500 flex lg:flex-row-reverse ml-10 justify-end mt-5 ">
         manjeetsinghh052003@gmail.com
       </p>
     </footer>

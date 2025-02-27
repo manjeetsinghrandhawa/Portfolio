@@ -40,7 +40,7 @@ const skills = [
 
 const SkillSlider = () => {
   return (
-    <div className="bg-black   rounded-2xl shadow-lg border-2 border-orange-500 lg:w-[1400px] md:w-[700px] sm:w-[400px] mx-auto lg:mt-36 md:mt-32 sm:mt-20  ">
+    <div className="bg-black h-[275px] w-screen mt-20 rounded-2xl shadow-lg border-2 border-orange-500 lg:w-[1400px] md:w-[700px] sm:w-[400px] mx-auto lg:mt-20 md:mt-20 sm:mt-20  ">
       <h2 className="text-4xl font-serif text-orange-500 text-center pb-8">
         My Skills
       </h2>
@@ -57,7 +57,7 @@ const SkillSlider = () => {
         </div>
 
         {/* Row 2 (Right to Left) */}
-        <div className="flex whitespace-nowrap animate-scroll-reverse mt-6">
+        <div className="flex whitespace-nowrap animate-scroll-reverse mt-10">
           {[...skills, ...skills].map((skill, index) => (
             <div key={index} className="mx-10 flex-shrink-0">
               {skill.icon}
