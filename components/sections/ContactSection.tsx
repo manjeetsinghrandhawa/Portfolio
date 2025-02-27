@@ -2,6 +2,7 @@
 "use client";
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { FaEnvelope } from "react-icons/fa";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -21,18 +22,27 @@ const ContactForm = () => {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setLoading(true);
+
     try {
       await emailjs.send(
-        "service_7c4ivkm", // Replace with your EmailJS service ID
-        "template_fp6ycrx", // Replace with your EmailJS template ID
-        formData,
-        "BWWcfjPeLy8C_uJD7" // Replace with your EmailJS public key
+        "service_7c4ivkm", // Your EmailJS service ID
+        "template_fp6ycrx", // Your EmailJS template ID
+        {
+          to_name: "Manjeet", // Set your name here or dynamically fetch it
+          user_name: formData.username, // Matches {{user_name}}
+          name: formData.username, // Matches {{name}}
+          email: formData.email, // Can be included if needed
+          message: formData.message, // Matches {{message}}
+        },
+        "BWWcfjPeLy8C_uJD7" // Your EmailJS public key
       );
+
       setSuccess(true);
       setFormData({ username: "", gender: "", email: "", message: "" });
     } catch (error) {
       console.error("Email send failed:", error);
     }
+
     setLoading(false);
   };
 
@@ -92,6 +102,18 @@ const ContactForm = () => {
           {loading ? "Sending..." : "Send Message"}
         </button>
       </form>
+
+      {/* Mail to Button */}
+      <div className="flex flex-col items-center justify-center mt-6">
+        <p className="text-blue-400 items-center ">or</p>
+        <a
+          href="mailto:your-email@example.com?subject=Contact%20Query"
+          className="flex items-center justify-center mt-5 w-[95%] gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg shadow-md transition duration-300"
+        >
+          <FaEnvelope className="text-blue-400 " />
+          <span className="items-center ">manjeetsinghh052003@gmail.com</span>
+        </a>
+      </div>
     </div>
   );
 };

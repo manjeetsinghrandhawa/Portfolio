@@ -52,7 +52,13 @@ const ProjectSection = () => {
         </h2>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-3 gap-10">
+        <div
+          style={{
+            background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.2), transparent 150px)`,
+            boxShadow: "0px 0px 20px rgba(0, 162, 255, 0.6)", // Light blue glow
+          }}
+          className="grid md:grid-cols-3 gap-10"
+        >
           {projects.map((project, index) => (
             <div
               key={index}

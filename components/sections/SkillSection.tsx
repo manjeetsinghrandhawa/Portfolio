@@ -40,8 +40,8 @@ const skills = [
 
 const SkillSlider = () => {
   return (
-    <div className="bg-black py-10 rounded-2xl shadow-lg border-2 border-blue-400 w-full">
-      <h2 className="text-4xl font-serif text-blue-400 text-center pb-8">
+    <div className="bg-black py-10 rounded-2xl shadow-lg border-2 border-orange-500 w-full">
+      <h2 className="text-4xl font-serif text-orange-500 text-center pb-8">
         My Skills
       </h2>
 
