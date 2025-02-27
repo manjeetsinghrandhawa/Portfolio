@@ -18,7 +18,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-8 mt-16">
+    <footer className="bg-gray-900 text-white py-8 mt-16 sm:mt-16">
       <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
         {/* Social Icons */}
         <div className="flex space-x-6 mb-4">
