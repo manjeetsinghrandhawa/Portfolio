@@ -13,31 +13,31 @@ export default function Home() {
         {/* Sections */}
         <div
           id="HeroSection"
-          className="w-[1400px] h-[700px] flex flex-row items-center justify-center mt-32 pl-12"
+          className=" flex flex-row items-center justify-center mt-32 "
         >
           <HeroSection />
         </div>
         <div
           id="AboutSection"
-          className="w-[1400px] h-[700px] flex flex-row items-center justify-center mt-52 pl-12"
+          className=" flex flex-row items-center justify-center  "
         >
           <AboutSection />
         </div>
         <div
           id="ProjectSection"
-          className="w-[1400px] h-[700px] flex flex-row items-center justify-center mt-52 pl-12"
+          className=" flex flex-row items-center justify-center"
         >
           <ProjectSection />
         </div>
         <div
           id="SkillSection"
-          className="w-[1400px] h-[700px] flex flex-row items-center justify-center -mt-5 pl-12"
+          className=" flex flex-row items-center justify-center"
         >
           <SkillSection />
         </div>
         <div
           id="ContactSection"
-          className="w-[1400px] h-[700px] flex flex-row items-center justify-center -mt-28 pl-12"
+          className=" flex flex-row items-center justify-center"
         >
           <ContactSection />
         </div>

@@ -47,14 +47,14 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-gray-900 p-8 rounded-xl shadow-lg border border-blue-500 text-white">
-      <h2 className="text-3xl font-bold text-center text-blue-400 mb-6">
+    <div className=" lg:w-[700px] md:w-[700px] sm:w-[400px] md:mt-36 sm:mt-20 mx-auto bg-gray-900  rounded-xl shadow-lg border border-blue-500 text-white">
+      <h2 className="text-3xl font-bold text-center text-blue-400 mb-6 lg:mt-5 md:mt-5 sm:mt-5">
         Contact Me
       </h2>
       {success && (
         <p className="text-green-400 text-center">Message Sent Successfully!</p>
       )}
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 p-5">
         <input
           type="text"
           name="username"
@@ -104,7 +104,7 @@ const ContactForm = () => {
       </form>
 
       {/* Mail to Button */}
-      <div className="flex flex-col items-center justify-center mt-6">
+      <div className="flex flex-col items-center justify-center p-6 ">
         <p className="text-blue-400 items-center ">or</p>
         <a
           href="mailto:your-email@example.com?subject=Contact%20Query"
