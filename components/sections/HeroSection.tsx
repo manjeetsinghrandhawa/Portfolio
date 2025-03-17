@@ -51,8 +51,8 @@ const HeroSection = () => {
         </h2>
         {/* Resume Download Button */}
         <a
-          href="/Manjeet Singh-resume.pdf"
-          download="Manjeet Singh-resume.pdf"
+          href="/Manjeeet Resume.pdf"
+          download="Mnajeet Resume"
           className="mt-6 px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-300"
         >
           Download Resume
