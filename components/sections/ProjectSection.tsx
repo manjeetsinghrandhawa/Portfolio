@@ -1,113 +1,97 @@
-import Image from "next/image";
-import React, { useState, useEffect } from "react";
+"use client";
+
+import React from "react";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 const projects = [
   {
-    title: "Dev Overflow",
-    description: "Developer community for coding Q&A and collaboration.",
-    tech: ["Next.js", "Node.js", "MongoDB", "Tailwind CSS"],
-    image: "/assets/devoverflowimage.jpg",
-    link: "https://github.com/manjeetsinghrandhawa/devflow",
+    title: "DevFlow",
+    desc: "Community-driven Q&A platform for developers with AI-powered assistance using Google Gemini",
+    tech: ["Next.js 15", "ShadCN", "Clerk", "MongoDB", "Google Gemini"],
+    github: "https://github.com/manjeetsinghrandhawa/devflow",
+    live: "https://devflow-tau-olive.vercel.app/",
   },
   {
-    title: "Edu Spark",
-    description:
-      "An interactive e-learning platform that leverages AI to enhance personalized education and engagement. 🚀",
-    tech: ["Reactjs", "Tailwind CSS", "ExpressJs", "MongoDB"],
-    image: "/assets/edusparkLogo.png",
-    link: "https://github.com/manjeetsinghrandhawa/eduspark-host",
+    title: "EduSpark",
+    desc: "Full-stack online learning platform with Razorpay integration and real-time progress tracking",
+    tech: ["MERN Stack", "MongoDB", "Razorpay", "Real-time Tracking"],
+    github: "https://github.com/manjeetsinghrandhawa/eduspark-host",
+    live: "https://eduspark-host.vercel.app/",
   },
   {
-    title: "Ecomzy",
-    description:
-      "🛍️ Ecomzy is a modern e-commerce website built with React, featuring a sleek and responsive UI, but currently designed as a frontend-only application.",
-    tech: ["React", "Node.js", "Tailwind CSS"],
-    image: "/assets/Screenshot (123).png",
-    link: "#",
+    title: "Media & Docs Manager",
+    desc: "Secure full-stack file management system with JWT auth and cloud storage integration",
+    tech: ["Next.js 15", "Node.js", "MongoDB", "JWT", "Cloud Storage"],
+    github: "https://github.com/manjeetsinghrandhawa/media-docs-manager",
+    live: null,
+  },
+  {
+    title: "E-commerce Web",
+    desc: "Interactive, responsive e-commerce front-end with dynamic components and optimized UX",
+    tech: ["React.js", "Tailwind CSS", "JavaScript", "State Management"],
+    github: "https://github.com/manjeetsinghrandhawa/E-commerce",
+    live: null,
   },
 ];
 
 const ProjectSection = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
   return (
-    <div
-      style={{
-        background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.2), transparent 150px)`,
-        boxShadow: "0px 0px 20px rgba(0, 162, 255, 0.6)", // Light blue glow
-      }}
-      className="flex flex-col lg:w-[1400px] md:w-[700px] mt-20 md:mt-20 sm:mt-20 sm:w-[400px] justify-center items-center bg-black rounded-2xl shadow-lg border-2 border-blue-400 transition-transform duration-300 p-6 w-screen-5 mx-auto"
-    >
-      <h2 className="text-3xl md:text-4xl font-serif text-blue-400 text-center lg:pb-6">
-        Projects
-      </h2>
-
-      {/* Projects Grid */}
-      <div className="grid grid-cols-1 mt-5  sm:mt-16 sm:grid-cols-1 lg:grid-cols-3 gap-6  w-full max-w-6xl">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            className="relative   flex flex-col items-center justify-between bg-gray-900 border-2 border-blue-400 rounded-2xl shadow-lg p-6 transition-transform duration-300 hover:scale-105"
-            style={{
-              boxShadow: "0px 0px 20px rgba(0, 162, 255, 0.6)", // Glowing effect
-            }}
-          >
-            {/* Project Image */}
-            <div className="w-full h-52 flex justify-center">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={300}
-                height={200}
-                className="rounded-lg border-2 border-blue-400 object-cover"
-              />
-            </div>
-
-            {/* Project Details */}
-            <h3 className="text-xl md:text-2xl font-serif text-blue-300 mt-4 text-center">
-              {project.title}
-            </h3>
-            <p className="text-gray-400 text-center mt-2 text-sm md:text-base">
-              {project.description}
-            </p>
-
-            {/* Tech Stack Badges */}
-            <div className="flex flex-wrap justify-center gap-2 mt-3">
-              {project.tech.map((tech, i) => (
-                <span
-                  key={i}
-                  className="text-xs md:text-sm bg-blue-600 px-2 py-1 rounded-full text-white"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Project Link */}
-            <a
-              href={project.link}
-              className="mt-4 px-6 py-2 flex gap-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-300"
+    <section id="projects" className="py-20 px-6 bg-[var(--bg-card)] bg-opacity-50">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-4">
+          Featured <span className="gradient-text">Projects</span>
+        </h2>
+        <p className="text-[var(--text-secondary)] text-center mb-12 max-w-2xl mx-auto">
+          Some of my recent work
+        </p>
+        <div className="grid md:grid-cols-2 gap-8">
+          {projects.map((proj, idx) => (
+            <div
+              key={idx}
+              className="card-3d bg-[var(--bg-dark)] rounded-2xl overflow-hidden glow-box group"
             >
-              View Project{"  "}
-              <img
-                src="/assets/portfolio.png"
-                alt="github image"
-                height={10}
-                width={20}
-              />
-            </a>
-          </div>
-        ))}
+              <div className="h-48 bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] opacity-80 flex items-center justify-center">
+                <span className="text-4xl font-bold text-white">{proj.title.charAt(0)}</span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2">{proj.title}</h3>
+                <p className="text-[var(--text-secondary)] text-sm mb-4">{proj.desc}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {proj.tech.map((t, i) => (
+                    <span
+                      key={i}
+                      className="px-2 py-1 rounded bg-[var(--primary)] bg-opacity-20 text-[var(--primary-glow)] text-xs"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-3 items-center flex-wrap">
+                  <a
+                    href={proj.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-white transition-colors"
+                  >
+                    <FiGithub /> GitHub
+                  </a>
+                  {proj.live && (
+                    <a
+                      href={proj.live}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-glow flex items-center gap-2 text-sm bg-[var(--primary)] text-slate-900 px-4 py-2 rounded-full hover:scale-105 transition-transform"
+                    >
+                      <FiExternalLink /> View Project
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

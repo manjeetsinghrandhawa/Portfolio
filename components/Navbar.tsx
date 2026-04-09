@@ -1,92 +1,66 @@
 "use client";
 import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [scrolled, setScrolled] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Smooth Scroll Function
-  const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setActiveSection(id);
-      setMenuOpen(false); // Close mobile menu on click
-    }
+  React.useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = ["About", "Experience", "Skills", "Projects", "Education", "Contact"];
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+    setMobileOpen(false);
   };
 
   return (
-    <header className="relative w-full bg-gray-900 shadow-md">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <h1 className="text-2xl font-bold text-white cursor-pointer">
-          Manjeet<span className="text-blue-400">.</span>
-        </h1>
-
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex space-x-8">
-          {[
-            { id: "HeroSection", label: "Home" },
-            { id: "AboutSection", label: "About" },
-            { id: "ProjectSection", label: "Projects" },
-            { id: "SkillSection", label: "Skills" },
-            { id: "ContactSection", label: "Contact" },
-          ].map(({ id, label }) => (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "nav-blur py-3" : "py-5"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <span
+          className="text-2xl font-bold gradient-text cursor-pointer"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          MS
+        </span>
+        <div className="hidden md:flex items-center gap-8">
+          {navItems.map((item) => (
             <button
-              key={id}
-              onClick={() => scrollToSection(id)}
-              className={`text-gray-300 hover:text-blue-400 transition duration-300 text-lg ${
-                activeSection === id ? "text-blue-500 underline" : ""
-              }`}
+              key={item}
+              onClick={() => scrollTo(item)}
+              className="text-[var(--text-secondary)] hover:text-[var(--primary-glow)] transition-colors"
             >
-              {label}
+              {item}
             </button>
           ))}
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="text-white text-2xl md:hidden"
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <button className="md:hidden text-2xl" onClick={() => setMobileOpen(!mobileOpen)}>
+          {mobileOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>
-
-      {/* Mobile Menu (Fixed) */}
-      <div
-        className={`fixed top-0 left-0 w-full h-full bg-gray-900/90 z-50 flex flex-col items-center justify-center space-y-8 transition-all duration-300 ${
-          menuOpen
-            ? "opacity-100 scale-100"
-            : "opacity-0 scale-95 pointer-events-none"
-        }`}
-      >
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="absolute top-6 right-6 text-white text-3xl"
-        >
-          <FaTimes />
-        </button>
-        <nav className="flex flex-col space-y-6 text-center">
-          {[
-            { id: "HeroSection", label: "Home" },
-            { id: "AboutSection", label: "About" },
-            { id: "ProjectSection", label: "Projects" },
-            { id: "SkillSection", label: "Skills" },
-            { id: "ContactSection", label: "Contact" },
-          ].map(({ id, label }) => (
+      {mobileOpen && (
+        <div className="md:hidden nav-blur mt-2 mx-4 rounded-xl p-4 flex flex-col gap-3">
+          {navItems.map((item) => (
             <button
-              key={id}
-              onClick={() => scrollToSection(id)}
-              className="text-white text-2xl hover:text-blue-400 transition"
+              key={item}
+              onClick={() => scrollTo(item)}
+              className="text-left py-2 text-[var(--text-secondary)] hover:text-[var(--primary-glow)]"
             >
-              {label}
+              {item}
             </button>
           ))}
-        </nav>
-      </div>
-    </header>
+        </div>
+      )}
+    </nav>
   );
 };
 

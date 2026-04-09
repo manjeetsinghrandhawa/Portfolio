@@ -1,78 +1,57 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import React from "react";
+import { FiGithub, FiMail } from "react-icons/fi";
 
 const AboutSection = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-  const [rotate, setRotate] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { left, top, width, height } =
-      e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - left - width / 2) / 35; // Adjust rotation intensity
-    const y = -(e.clientY - top - height / 2) / 35;
-    setRotate({ x, y });
-  };
-
-  const handleMouseLeave = () => {
-    setRotate({ x: 0, y: 0 });
-  };
-
   return (
-    <div
-      style={{
-        background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.2), transparent 150px)`,
-        transform: `rotateY(${rotate.x}deg) rotateX(${rotate.y}deg)`,
-        boxShadow: "0px 0px 20px rgba(255, 165, 0, 0.6)", // Orange glow
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="rounded-2xl 
-        mt-20 w-screen-5
-        sm:w-[400px] sm:mt-20 
-        md:w-[700px] lg:w-[1400px] 
-        shadow-lg border-2 border-orange-500 
-        transition-transform duration-300 p-6 
-        max-w-[1400px] mx-auto"
-    >
-      <h1 className="text-4xl md:text-6xl text-orange-500 text-center md:text-left font-bold mb-6">
-        About Me
-      </h1>
-
-      <div className="text-lg md:text-2xl leading-relaxed text-justify space-y-6">
-        <p className="text-white">
-          👋 Hi, I&apos;m <span className="text-orange-400">Manjeet</span>, a
-          passionate
-          <span className="text-blue-400"> Software Developer</span> who loves
-          turning ideas into reality through code. With expertise in{" "}
-          <span className="text-blue-400">Next.js, React, JavaScript</span>, and
-          backend technologies, I specialize in building dynamic and responsive
-          web applications.
+    <section id="about" className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-4">
+          About <span className="gradient-text">Me</span>
+        </h2>
+        <p className="text-[var(--text-secondary)] text-center mb-12 max-w-2xl mx-auto">
+          A passionate developer crafting digital experiences
         </p>
-        <p className="text-white">
-          🚀 I thrive on problem-solving and enjoy crafting elegant, scalable
-          solutions. My goal is to create seamless digital experiences that make
-          an impact.
-        </p>
-        <p className="text-white">
-          💡 When I&apos;m not coding, I explore the latest tech trends,
-          contribute to open-source projects, and work on innovative side
-          projects.
-        </p>
-        <p className="text-white">
-          🎨 I also have a keen eye for design and enjoy creating visually
-          appealing and user-friendly interfaces, ensuring that functionality
-          meets aesthetics seamlessly.
-        </p>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="card-3d bg-[var(--bg-card)] rounded-2xl p-8 glow-box">
+            <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] p-1">
+              <div className="w-full h-full rounded-xl bg-[var(--bg-card)] flex items-center justify-center">
+                <div className="text-8xl gradient-text font-bold">MS</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-2xl font-semibold mb-4">
+              Full Stack Developer &amp; Problem Solver
+            </h3>
+            <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
+              I&apos;m a B.Tech Computer Science graduate from Drs. Kiran and Pallavi Patel Global University with a strong foundation in full-stack development.
+              With hands-on experience at QuantumIT Innovation, I&apos;ve developed scalable backend architectures and modern frontend interfaces.
+            </p>
+            <p className="text-[var(--text-secondary)] mb-6 leading-relaxed">
+              I specialize in Next.js, React, Node.js, and cloud technologies, building applications that are both performant and user-friendly.
+            </p>
+            <div className="flex gap-4">
+              <a
+                href="https://github.com/manjeetsinghrandhawa"
+                target="_blank"
+                rel="noreferrer"
+                className="w-12 h-12 rounded-full bg-[var(--bg-card)] border border-[var(--primary)] flex items-center justify-center hover:bg-[var(--primary)] hover:text-slate-900 transition-all"
+              >
+                <FiGithub className="text-xl" />
+              </a>
+              <a
+                href="mailto:manjeetsinghh052003@gmail.com"
+                className="w-12 h-12 rounded-full bg-[var(--bg-card)] border border-[var(--primary)] flex items-center justify-center hover:bg-[var(--primary)] hover:text-slate-900 transition-all"
+              >
+                <FiMail className="text-xl" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,121 +1,104 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser";
-import { FaEnvelope } from "react-icons/fa";
+import { FiGithub, FiMail, FiMapPin } from "react-icons/fi";
 
-const ContactForm = () => {
+const ContactSection = () => {
   const [formData, setFormData] = useState({
-    username: "",
-    gender: "",
+    name: "",
     email: "",
     message: "",
   });
 
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
-
-    try {
-      await emailjs.send(
-        "service_7c4ivkm", // Your EmailJS service ID
-        "template_fp6ycrx", // Your EmailJS template ID
-        {
-          to_name: "Manjeet", // Set your name here or dynamically fetch it
-          user_name: formData.username, // Matches {{user_name}}
-          name: formData.username, // Matches {{name}}
-          email: formData.email, // Can be included if needed
-          message: formData.message, // Matches {{message}}
-        },
-        "BWWcfjPeLy8C_uJD7" // Your EmailJS public key
-      );
-
-      setSuccess(true);
-      setFormData({ username: "", gender: "", email: "", message: "" });
-    } catch (error) {
-      console.error("Email send failed:", error);
-    }
-
-    setLoading(false);
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
+    setFormData({ name: "", email: "", message: "" });
   };
 
   return (
-    <div className=" lg:w-[700px] w-screen-5 mt-20 md:w-[700px] sm:w-[400px] md:mt-20 sm:mt-20 mx-auto bg-gray-900  rounded-xl shadow-lg border border-blue-500 text-white">
-      <h2 className="text-3xl mt-10 font-bold text-center text-blue-400 mb-6 lg:mt-5 md:mt-5 sm:mt-5">
-        Contact Me
-      </h2>
-      {success && (
-        <p className="text-green-400 text-center">Message Sent Successfully!</p>
-      )}
-      <form onSubmit={handleSubmit} className="space-y-4 p-5 ">
-        <input
-          type="text"
-          name="username"
-          placeholder="Your Name"
-          value={formData.username}
-          onChange={handleChange}
-          required
-          className="w-full justify-center items-center p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <select
-          name="gender"
-          value={formData.gender}
-          onChange={handleChange}
-          required
-          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        >
-          <option value="">Select Gender</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-          <option value="Other">Other</option>
-        </select>
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        />
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          required
-          rows={4}
-          className="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        ></textarea>
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full p-3 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg transition duration-300"
-        >
-          {loading ? "Sending..." : "Send Message"}
-        </button>
-      </form>
+    <section id="contact" className="py-20 px-6 bg-[var(--bg-card)] bg-opacity-50">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-4">
+          Get In <span className="gradient-text">Touch</span>
+        </h2>
+        <p className="text-[var(--text-secondary)] text-center mb-12 max-w-2xl mx-auto">
+          Let&apos;s work together on your next project
+        </p>
+        <div className="grid md:grid-cols-2 gap-12">
+          <div className="card-3d bg-[var(--bg-dark)] rounded-2xl p-8 glow-box">
+            <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
+            <div className="space-y-4">
+              <a
+                href="mailto:manjeetsinghh052003@gmail.com"
+                className="flex items-center gap-4 text-[var(--text-secondary)] hover:text-white transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-[var(--primary)] bg-opacity-20 flex items-center justify-center">
+                  <FiMail className="text-[var(--secondary)]" />
+                </div>
+                <span>manjeetsinghh052003@gmail.com</span>
+              </a>
+              <a
+                href="https://github.com/manjeetsinghrandhawa"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 text-[var(--text-secondary)] hover:text-white transition-colors"
+              >
+                <div className="w-10 h-10 rounded-lg bg-[var(--primary)] bg-opacity-20 flex items-center justify-center">
+                  <FiGithub className="text-[var(--secondary)]" />
+                </div>
+                <span>github.com/manjeetsinghrandhawa</span>
+              </a>
+              <div className="flex items-center gap-4 text-[var(--text-secondary)]">
+                <div className="w-10 h-10 rounded-lg bg-[var(--primary)] bg-opacity-20 flex items-center justify-center">
+                  <FiMapPin className="text-[var(--secondary)]" />
+                </div>
+                <span>Vadodara, India</span>
+              </div>
+            </div>
+          </div>
 
-      {/* Mail to Button */}
-      <div className="flex flex-col items-center justify-center p-6 ">
-        <p className="text-blue-400 items-center ">or</p>
-        <a
-          href="mailto:manjeetsinghh052003@gmail.com?subject=Contact%20Query"
-          className="flex items-center justify-center mt-5 w-[95%] gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg shadow-md transition duration-300"
-        >
-          <FaEnvelope className="text-blue-400 " />
-          <span className="items-center ">manjeetsinghh052003@gmail.com</span>
-        </a>
+          <form
+            onSubmit={handleSubmit}
+            className="card-3d bg-[var(--bg-dark)] rounded-2xl p-8 glow-box space-y-4"
+          >
+            <input
+              type="text"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              className="w-full px-4 py-3 rounded-lg bg-[var(--bg-card)] border border-transparent focus:border-[var(--primary)] outline-none transition-colors"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full px-4 py-3 rounded-lg bg-[var(--bg-card)] border border-transparent focus:border-[var(--primary)] outline-none transition-colors"
+              required
+            />
+            <textarea
+              placeholder="Your Message"
+              rows={4}
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              className="w-full px-4 py-3 rounded-lg bg-[var(--bg-card)] border border-transparent focus:border-[var(--primary)] outline-none transition-colors resize-none"
+              required
+            />
+            <button
+              type="submit"
+              className="btn-glow w-full bg-[var(--primary)] text-slate-900 py-3 rounded-lg font-semibold hover:scale-105 transition-transform"
+            >
+              {submitted ? "Message Sent!" : "Send Message"}
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default ContactForm;
+export default ContactSection;
