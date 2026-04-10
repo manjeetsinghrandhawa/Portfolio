@@ -44,7 +44,7 @@ const EducationSection = () => {
               <div className="flex-grow">
                 <div className="flex flex-wrap items-center gap-3 mb-2">
                   <h3 className="text-xl font-bold">{edu.degree}</h3>
-                  <span className="px-3 py-1 rounded-full bg-[var(--secondary)] bg-opacity-20 text-[var(--secondary)] text-sm">
+                  <span className="px-3 py-1 rounded-full bg-[var(--secondary)] text-black font-semibold text-sm">
                     {edu.grade}
                   </span>
                 </div>

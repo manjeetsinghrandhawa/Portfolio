@@ -58,8 +58,8 @@ const SkillSection = () => {
             return (
               <div key={idx} className="card-3d bg-[var(--bg-card)] rounded-2xl p-6 glow-box">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-[var(--primary)] bg-opacity-20 flex items-center justify-center">
-                    <Icon className="text-[var(--secondary)]" />
+                  <div className="w-10 h-10 rounded-lg bg-[var(--primary)] flex items-center justify-center">
+                    <Icon className="text-black" />
                   </div>
                   <h3 className="text-lg font-semibold">{cat.title}</h3>
                 </div>
@@ -67,7 +67,7 @@ const SkillSection = () => {
                   {cat.skills.map((skill, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 rounded-full bg-[var(--bg-dark)] text-[var(--text-secondary)] text-sm hover:text-[var(--primary-glow)] hover:border-[var(--primary)] border border-transparent transition-all cursor-default"
+                      className="px-3 py-1 rounded-full bg-[var(--bg-dark)] text-white text-sm hover:text-[var(--primary)] hover:border-[var(--primary)] border border-transparent transition-all cursor-default"
                     >
                       {skill}
                     </span>

@@ -33,7 +33,7 @@ const ExperienceSection = () => {
           <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)]" />
           <div className="pl-8">
             <div className="flex flex-wrap items-center gap-4 mb-4">
-              <span className="px-4 py-1 rounded-full bg-[var(--primary)] bg-opacity-20 text-[var(--primary-glow)] text-sm">
+              <span className="px-4 py-1 rounded-full bg-[var(--primary)] text-black text-sm font-semibold">
                 {experience.period}
               </span>
               <span className="text-[var(--text-secondary)]">{experience.location}</span>

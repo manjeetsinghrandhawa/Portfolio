@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { FiGithub, FiMail } from "react-icons/fi";
+import Image from "next/image";
+import { FiDownload, FiGithub, FiMail } from "react-icons/fi";
 
 const AboutSection = () => {
   return (
@@ -16,8 +17,15 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="card-3d bg-[var(--bg-card)] rounded-2xl p-8 glow-box">
             <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] p-1">
-              <div className="w-full h-full rounded-xl bg-[var(--bg-card)] flex items-center justify-center">
-                <div className="text-8xl gradient-text font-bold">MS</div>
+              <div className="w-full h-full rounded-xl bg-[var(--bg-card)] relative overflow-hidden">
+                <Image
+                  src="/assets/manjeetphotoedited1.png"
+                  alt="Manjeet Singh"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -46,6 +54,13 @@ const AboutSection = () => {
                 className="w-12 h-12 rounded-full bg-[var(--bg-card)] border border-[var(--primary)] flex items-center justify-center hover:bg-[var(--primary)] hover:text-slate-900 transition-all"
               >
                 <FiMail className="text-xl" />
+              </a>
+              <a
+                href="/assets/Manjeetsingh%20-%20CV.pdf"
+                download
+                className="btn-glow inline-flex items-center gap-2 bg-[var(--primary)] text-slate-900 px-5 py-3 rounded-full font-semibold hover:scale-105 transition-transform"
+              >
+                <FiDownload /> Download CV
               </a>
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { FiGithub, FiMail } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 const Footer = () => {
   return (
@@ -24,6 +24,14 @@ const Footer = () => {
             className="w-10 h-10 rounded-full bg-[var(--bg-card)] flex items-center justify-center hover:bg-[var(--primary)] hover:text-slate-900 transition-all"
           >
             <FiMail className="text-lg" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/manjeet-singh-randhawa-a10614279/"
+            target="_blank"
+            rel="noreferrer"
+            className="w-10 h-10 rounded-full bg-[var(--bg-card)] flex items-center justify-center hover:bg-[var(--primary)] hover:text-slate-900 transition-all"
+          >
+            <FiLinkedin className="text-lg" />
           </a>
         </div>
       </div>

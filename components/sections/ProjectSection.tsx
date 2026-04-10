@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
 
 const projects = [
@@ -10,6 +11,7 @@ const projects = [
     tech: ["Next.js 15", "ShadCN", "Clerk", "MongoDB", "Google Gemini"],
     github: "https://github.com/manjeetsinghrandhawa/devflow",
     live: "https://devflow-tau-olive.vercel.app/",
+    image: "/assets/devoverflowimage.jpg",
   },
   {
     title: "EduSpark",
@@ -17,13 +19,15 @@ const projects = [
     tech: ["MERN Stack", "MongoDB", "Razorpay", "Real-time Tracking"],
     github: "https://github.com/manjeetsinghrandhawa/eduspark-host",
     live: "https://eduspark-host.vercel.app/",
+    image: "/assets/Screenshot (562).png",
   },
   {
     title: "Media & Docs Manager",
     desc: "Secure full-stack file management system with JWT auth and cloud storage integration",
     tech: ["Next.js 15", "Node.js", "MongoDB", "JWT", "Cloud Storage"],
     github: "https://github.com/manjeetsinghrandhawa/media-docs-manager",
-    live: null,
+    live: "https://media-docs-frontend.vercel.app/",
+    image: "/assets/Screenshot (561).png",
   },
   {
     title: "E-commerce Web",
@@ -31,6 +35,7 @@ const projects = [
     tech: ["React.js", "Tailwind CSS", "JavaScript", "State Management"],
     github: "https://github.com/manjeetsinghrandhawa/E-commerce",
     live: null,
+    image: "/assets/Screenshot (123).png",
   },
 ];
 
@@ -50,8 +55,14 @@ const ProjectSection = () => {
               key={idx}
               className="card-3d bg-[var(--bg-dark)] rounded-2xl overflow-hidden glow-box group"
             >
-              <div className="h-48 bg-gradient-to-br from-[var(--primary)] via-[var(--secondary)] to-[var(--accent)] opacity-80 flex items-center justify-center">
-                <span className="text-4xl font-bold text-white">{proj.title.charAt(0)}</span>
+              <div className="h-48 relative">
+                <Image
+                  src={proj.image}
+                  alt={`${proj.title} project preview`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{proj.title}</h3>
@@ -60,7 +71,7 @@ const ProjectSection = () => {
                   {proj.tech.map((t, i) => (
                     <span
                       key={i}
-                      className="px-2 py-1 rounded bg-[var(--primary)] bg-opacity-20 text-[var(--primary-glow)] text-xs"
+                      className="px-2 py-1 rounded bg-[var(--primary)] bg-opacity-25 text-white text-xs"
                     >
                       {t}
                     </span>
