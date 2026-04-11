@@ -56,7 +56,7 @@ const AboutSection = () => {
                 <FiMail className="text-xl" />
               </a>
               <a
-                href="/assets/ManjeetSingh%20-%20CV.pdf"
+                href="/assets/Manjeet%20Singh%20-%20Resume.pdf"
                 download
                 className="btn-glow inline-flex items-center gap-2 bg-[var(--primary)] text-slate-900 px-5 py-3 rounded-full font-semibold hover:scale-105 transition-transform"
               >
