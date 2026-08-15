@@ -44,6 +44,9 @@ export async function POST(request: Request) {
         user: emailUser,
         pass: emailPass,
       },
+      tls: {
+        rejectUnauthorized: false,
+      },
     });
 
     await transporter.verify();
